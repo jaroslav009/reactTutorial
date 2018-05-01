@@ -1,16 +1,18 @@
 // Components JSX
 import React, { Component } from 'react';
-import Form from './Components/Form';
+import ContainerNote from './Components/ContainerNote.jsx';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducer from "./reducers/reduce";
 
-// Css
-import './Library/Bootstrap/css/bootstrap.min.css';
-import './App.css';
-import './css/main.css';
+const storeNote = createStore(reducer)
 
 class App extends Component {
   render() {
     return (
-		<Form/>
+      <Provider store={storeNote}>
+		    <ContainerNote/>
+      </Provider>
     );
   }
 }
